@@ -20,10 +20,9 @@ class App extends Component {
     asin: "",
   }
 
-  getBookClicked = (e) => {
+  getBookClicked = (asin) => {
     this.setState({
-      asin: e.target.closest(".card").children[1].children[3].innerText,
-      styleApplied: true,
+      asin,
     })
   }
 

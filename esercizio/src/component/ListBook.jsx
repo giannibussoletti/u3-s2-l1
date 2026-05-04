@@ -7,7 +7,7 @@ const genre = ["scifi", "romance", "history", "horror", "fantasy"]
 class ListBook extends Component {
   state = {
     search: "",
-    filter: "",
+    filter: "scifi",
   }
 
   changeFilter = (e) => {
@@ -61,6 +61,7 @@ class ListBook extends Component {
         <Row xs={1} sm={2} md={3} className="justify-content-between g-3">
           {this.props.object
             .filter((book) => book.title.toLowerCase().includes(this.state.search.toLowerCase()))
+            .filter((book) => book.category.toLowerCase() === this.state.filter.toLowerCase())
             .map((book, i) => {
               return (
                 <Col key={book.asin + i} className="flex-grow-1">
