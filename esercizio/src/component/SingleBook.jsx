@@ -5,7 +5,11 @@ class SingleBook extends Component {
   render() {
     return (
       <>
-        <Card className="h-100" style={{ border: true ? "2px solid red" : "1px solid grey" }}>
+        <Card
+          className="h-100"
+          style={{
+            border: this.props.answer === this.props.asin ? "2px solid red" : "1px solid grey",
+          }}>
           <Card.Img variant="top" src={this.props.image} onClick={this.props.onClick} />
           <Card.Body className="d-flex flex-column">
             <Card.Title className="flex-grow-1">{this.props.title}</Card.Title>
