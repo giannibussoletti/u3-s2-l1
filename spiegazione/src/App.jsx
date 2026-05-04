@@ -1,13 +1,22 @@
 import { Component } from "react"
 import "bootstrap/dist/css/bootstrap.min.css"
-import { Container, Row, Col, Form } from "react-bootstrap"
+import { Container, Row, Col } from "react-bootstrap"
 import MovieCard from "./assets/MovieCard"
+import MovieSelect from "./assets/MovieSelect"
 
 class App extends Component {
   state = {
     movie: "Iron Man",
     // con questo stato verra controllato la scelta del film
   }
+
+  changeAppState = (e) => {
+    console.log(e)
+    this.setState({
+      movie: e.target.value,
+    })
+  }
+
   render() {
     return (
       <Container>
@@ -18,19 +27,7 @@ class App extends Component {
         </Row>
         <Row className="justify-content-center mb-4">
           <Col xs={12} md={6}>
-            <Form.Select
-              value={this.state.movie}
-              onChange={(e) => {
-                this.setState({
-                  movie: e.target.value,
-                })
-              }}>
-              <option>Iron Man</option>
-              <option>Spider-man</option>
-              <option>Doctor Strange</option>
-              <option>The Avengers</option>
-              <option>Hulk</option>
-            </Form.Select>
+            <MovieSelect value={this.state.movie} onChange={this.changeAppState} />
           </Col>
         </Row>
         <Row className="justify-content-center">
