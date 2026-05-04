@@ -23,7 +23,6 @@ class CommentArea extends Component {
         }
       })
       .then((comments) => {
-        console.log(comments)
         this.setState({
           comment: comments,
         })
@@ -33,8 +32,15 @@ class CommentArea extends Component {
       })
   }
 
-  componentDidMount() {
-    this.getComments(this.props.asin)
+  // componentDidMount() {
+  //   this.getComments(this.props.asin)
+  // }
+
+  componentDidUpdate(prevProps) {
+    if (prevProps.asin !== this.props.asin) {
+      this.getComments(this.props.asin)
+      console.log(this.props.asin)
+    }
   }
 
   render() {
