@@ -27,8 +27,6 @@ class App extends Component {
     })
   }
 
-  setAsinBook = {}
-
   render() {
     return (
       <>
@@ -48,7 +46,7 @@ class App extends Component {
                 <ListBook
                   object={AllTheBooks}
                   onClick={this.getBookClicked}
-                  styleApplied={this.state.styleApplied}
+                  staticAsin={this.state.asin}
                 />
               </Col>
               <Col xs={3}>

@@ -35,12 +35,12 @@ class ListBook extends Component {
               return (
                 <Col key={book.asin + i} className="flex-grow-1">
                   <SingleBook
-                    styleApplied={this.props.styleApplied}
                     onClick={this.props.onClick}
                     image={book.img}
                     price={book.price}
                     title={book.title}
                     asin={book.asin}
+                    answer={this.props.staticAsin}
                     genre={book.category}
                   />
                 </Col>
