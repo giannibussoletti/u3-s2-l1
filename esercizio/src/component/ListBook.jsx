@@ -8,10 +8,11 @@ class ListBook extends Component {
   state = {
     search: "",
   }
+
   render() {
     return (
-      <Container>
-        <Row className="mt-4">
+      <Container fluid>
+        <Row className="mb-4">
           <Form.Control
             type="text"
             placeholder="Cerca un libro"
@@ -34,6 +35,8 @@ class ListBook extends Component {
               return (
                 <Col key={book.asin + i} className="flex-grow-1">
                   <SingleBook
+                    styleApplied={this.props.styleApplied}
+                    onClick={this.props.onClick}
                     image={book.img}
                     price={book.price}
                     title={book.title}

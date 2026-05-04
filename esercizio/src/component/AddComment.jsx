@@ -33,10 +33,21 @@ class AddComment extends Component {
           })
           this.props.getComments(this.props.asin)
         } else {
-          throw new Error("Errore nel recupero", response.status)
+          throw new Error(response.status)
         }
       })
       .catch((err) => console.log("errore di recupero" + err))
+  }
+
+  componentDidUpdate(prevProps) {
+    if (prevProps.asin !== this.state.comments.elementId) {
+      this.setState({
+        comments: {
+          ...this.state.comments,
+          elementId: this.props.asin,
+        },
+      })
+    }
   }
 
   render() {
@@ -63,7 +74,6 @@ class AddComment extends Component {
         <Form.Control
           value={this.state.comments.rate}
           onChange={(e) => {
-            console.log(e.target.value)
             this.setState({
               comments: {
                 ...this.state.comments,
