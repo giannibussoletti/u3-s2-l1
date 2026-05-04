@@ -39,7 +39,6 @@ class CommentArea extends Component {
   componentDidUpdate(prevProps) {
     if (prevProps.asin !== this.props.asin) {
       this.getComments(this.props.asin)
-      console.log(this.props.asin)
     }
   }
 
