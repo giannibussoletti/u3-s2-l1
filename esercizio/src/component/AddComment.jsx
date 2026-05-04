@@ -85,6 +85,7 @@ class AddComment extends Component {
           placeholder="Voto da 1 a 5"
           minLength={1}
           maxLength={5}
+          className="my-3"
         />
         <Button variant="primary" type="submit">
           invia

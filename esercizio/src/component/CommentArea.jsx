@@ -44,7 +44,7 @@ class CommentArea extends Component {
 
   render() {
     return (
-      <>
+      <div className="position-sticky top-0">
         <ListGroup>
           {this.state.comment.map((comment) => {
             return (
@@ -59,7 +59,7 @@ class CommentArea extends Component {
           })}
         </ListGroup>
         <AddComment asin={this.props.asin} getComments={this.getComments} />
-      </>
+      </div>
     )
   }
 }
